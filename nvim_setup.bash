@@ -12,6 +12,16 @@ function check_cmd() {
   echo "$cmd" exists!
 }
 
+function check_cmd_gracefully() {
+  local cmd=$1
+  if [ -z $(which "$cmd") ]; then
+    echo "$cmd not found!"
+    echo try install "$cmd"...
+    return 1
+  fi
+  return 0
+}
+
 ## basic
 function check_nvim() {
   check_cmd nvim
@@ -85,7 +95,8 @@ path = ".bacon-locations"
 EOF
 }
 function check_rg() {
-
+  check_cmd_gracefully rg ||
+    brew install ripgrep
 }
 function main() {
   check_nvim
@@ -94,6 +105,7 @@ function main() {
   check_rust
   check_bascon
   bacon_init
+  check_rg
 }
 
 main
