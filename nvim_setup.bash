@@ -98,6 +98,10 @@ function check_rg() {
   check_cmd_gracefully rg ||
     brew install ripgrep
 }
+function check_fd() {
+  check_cmd_gracefully fd ||
+    brew install fd
+}
 function main() {
   check_nvim
   check_sync
@@ -106,6 +110,7 @@ function main() {
   check_bascon
   bacon_init
   check_rg
+  check_fd
 }
 
 main
