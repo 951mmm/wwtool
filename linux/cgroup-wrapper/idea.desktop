@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=intelliJ IDEA 25 community
+Icon=/opt/ww/idea-IC-251.27812.49/bin/idea.png
+Exec=/home/ww/Public/cgroup-wrapper/idea.bash
+Categories=Development;IDE;
+
